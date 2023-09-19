@@ -8,7 +8,7 @@ public class Team{
 
     public Team(String name) throws Exception {
         if (!isValidName(name)) {
-            throw new Exception("Invalid Name");
+            throw new Exception("Invalid Name: " + name);
         }
         this.name = name;
     }
