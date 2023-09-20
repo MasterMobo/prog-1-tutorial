@@ -1,16 +1,19 @@
 package sampleTest2.problem2;
 
+import java.util.ArrayList;
+
 public class Team{
     private String name;
     private int score;
 
-    private Team winsTo;
+    private ArrayList<Team> winsTo;
 
     public Team(String name) throws Exception {
         if (!isValidName(name)) {
             throw new Exception("Invalid Name: " + name);
         }
         this.name = name;
+        winsTo = new ArrayList<>();
     }
 
     public static boolean isValidName(String name) {
@@ -25,8 +28,8 @@ public class Team{
         return score;
     }
 
-    public Team getWinsTo() {
-        return winsTo;
+    public boolean hasWon(Team other) {
+        return winsTo.contains(other);
     }
 
     public void addPoint(int points) {
@@ -35,11 +38,11 @@ public class Team{
 
     public void win(Team other) {
         this.addPoint(3);
-        this.winsTo = other;
+        this.winsTo.add(other);
     }
 
     public void lose(Team other) {
-        other.winsTo = this;
+        other.win(this);
     }
 
     public void draw(Team other) {

@@ -21,13 +21,14 @@ public class Main {
 
 // assume leader is a LeaderBoard object
             LeaderBoard leader = new LeaderBoard();
-            leader.add(a);
+            leader.add(d);
 
-            leader.add(b);
+            leader.add(a);
 
             leader.add(c);
 
-            leader.add(d);
+            leader.add(b);
+
 
             System.out.println(leader.rank());
             System.out.println(leader.realRank());
